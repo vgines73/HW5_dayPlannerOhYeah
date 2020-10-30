@@ -9,28 +9,27 @@ $(document).ready(function () {
     times.forEach(time => {
         const timeCheck = window.localStorage.getItem(time);
         // console.log(timeCheck); // check to see if it shows, shows null
-
+        const timeId = "#" + time;
         const currentHour = moment().hour(); // variable for current hour
         // console.log(currentHour); // gets the current hour
         // console.log(time); // console log the time of the hour
 
         // if current hour is greater than the time
         if (currentHour > time) { // past
-            $(`#${time}`).addClass("past"); // background text turns grey
+            $(timeId).addClass("past"); // background text turns grey
         } else if (currentHour === time) { //present
-            $(`#${time}`).addClass("present"); // background text turns red
-            $(`#${time}`).attr("disabled", true); // disable user from entering text
+            $(timeId).addClass("present"); // background text turns red
+            $(timeId).attr("disabled", true); // disable user from entering text
         } else if (currentHour < time) { // future
-            $(`#${time}`).addClass("future"); // background text turns green
+            $(timeId).addClass("future"); // background text turns green
 
         }
 
-
+        // conditional if time comes back null;  
         if (timeCheck === null) {
             window.localStorage.setItem(time, ""); // stores the time and empty string in local storage
-        } else if (timeCheck.length > 0) {
-            $(`#${time}`).attr("value", window.localStorage.getItem(time)); // not working; text doesn't enter
-         
+        } else if (timeCheck.length > 0) { // time is greater than zero then;
+            $(timeId).attr("value", window.localStorage.getItem(time)); // store the time and entered text
         };
 
 
@@ -40,9 +39,12 @@ $(document).ready(function () {
     $("form").on(("submit"), function (e) {
         e.preventDefault();
        // console.log(e.target) // see if we can target the form
-        console.log(e.target.querySelector("input").getAttribute("id")) // to see if it can save into local storage
-        console.log(e.target.querySelector("input").value) // to see if it can save the text entered so we can store into local storage
+       // console.log(e.target.querySelector("input").getAttribute("id")) // to see if it can save into local storage
+       // console.log(e.target.querySelector("input").value) // to see if it can save the text entered so we can store into local storage
+        const time = e.target.querySelector("input").getAttribute("id"); //to target time
+        const text = e.target.querySelector("input").value // to target the value
 
+        window.localStorage.setItem(time, text); // submits the time and text into local storage
     })
 
 })
