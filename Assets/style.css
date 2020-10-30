@@ -1,3 +1,4 @@
+
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
@@ -65,7 +66,8 @@ textarea{
   color: white;
 }
 
-.saveBtn i:hover {
+.saveBtn i:hover{
   font-size: 20px;
-  transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out!important;
 }
+

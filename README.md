@@ -14,82 +14,24 @@ AS AN employee with a busy schedule
 I WANT to add important events to a daily planner
 SO THAT I can manage my time effectively
 ```
+Had to create a Work Day Scheduler:
 
+- needed to make sure current day was displayed on the calender.
+- time blocks for standards business hours from 9am-5pm.
+- time blocks were color coded to indicate past, present and future.
+- user is able to click on time block to enter text for the event.
+- user saves event for that block by clicking save button and is stored in local storage.
+- save events persist even after refreshing.
 
-## Acceptance Criteria
+So I started off by making my timeblocks in the html using bootstrap. I made a container, within the container time, enter events, and buttons all had their own columns as well. Since we are submitting the events into local storage I made sure to create a form and made sure to switch the button to submit. I also added a font awesome icon on the button as well. Once I was okay with the style/setup, I started working on the Javascript using jQuery. Since I'm using jQuery I had to start off with my $(document).ready function(). Then set up the current date using the moment function. Then worked on the submit button creating a submit function and using the event.preventDefault function to stop the site from refreshing. Then made an array for the time and converted it into Military time to make things easier. Had to create idtags in html for the time in the input section for each hour. Created a for each loop to store in local storage. Created conditionals if it were null to add the time in local storage with nothing in the value section. Then an else if statement to add the time and value for entry. Then created a const for the current hour by using the moment().hour(). Used that to create another conditional for entering the text in the events and set up the color backgrounds for past, present, and future using the css provided. past events will turn grey, current will be red and cannot make new entries while red, and future events will be green but will still be able to enter events until it is the current hour. 
 
-```
-GIVEN I am using a daily planner to create a schedule
-WHEN I open the planner
-THEN the current day is displayed at the top of the calendar
-WHEN I scroll down
-THEN I am presented with time blocks for standard business hours
-WHEN I view the time blocks for that day
-THEN each time block is color-coded to indicate whether it is in the past, present, or future
-WHEN I click into a time block
-THEN I can enter an event
-WHEN I click the save button for that time block
-THEN the text for that event is saved in local storage
-WHEN I refresh the page
-THEN the saved events persist
-```
-
-
-## Mock-Up
-
-The following animation demonstrates the application functionality:
 
 ![day planner demo](./Assets/05-third-party-apis-homework-demo.gif)
 
-
-## Grading Requirements
-
-This homework is graded based on the following criteria: 
-
-### Technical Acceptance Criteria: 40%
-
-* Satisfies all of the above acceptance criteria plus the following:
-
-  * Uses the Moment.js library to work with date and time
-
-### Deployment: 32%
-
 * Application deployed at live URL
-
-* Application loads with no errors
 
 * Application GitHub URL submitted
 
-* GitHub repo contains application code
-
-### Application Quality: 15%
-
-* Application user experience is intuitive and easy to navigate
-
-* Application user interface style is clean and polished
-
-* Application resembles the mock-up functionality provided in the homework instructions
-
-### Repository Quality: 13%
-
-* Repository has a unique name
-
-* Repository follows best practices for file structure and naming conventions
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages
-
 * Repository contains quality README file with description, screenshot, and link to deployed application
 
-
-## Review
-
-You are required to submit BOTH of the following for review:
-
-* The URL of the functional, deployed application.
-
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
-
-- - -
-© 2020 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+Issues I came across. Local storage has been an issue for me.
