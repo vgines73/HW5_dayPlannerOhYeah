@@ -19,7 +19,6 @@ $(document).ready(function () {
             $(timeId).addClass("past"); // background text turns grey
         } else if (currentHour === time) { //present
             $(timeId).addClass("present"); // background text turns red
-            // $(timeId).attr("disabled") === true; // disable user from entering text
         } else if (currentHour < time) { // future
             $(timeId).addClass("future"); // background text turns green
         }
