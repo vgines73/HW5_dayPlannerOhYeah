@@ -22,20 +22,17 @@ $(document).ready(function () {
             // $(timeId).attr("disabled") === true; // disable user from entering text
         } else if (currentHour < time) { // future
             $(timeId).addClass("future"); // background text turns green
-
         }
-
+        
         // conditional if time comes back null;  
         if (timeCheck === null) {
             window.localStorage.setItem(time, ""); // stores the time and empty string in local storage
         } else if (timeCheck.length > 0) { // time is greater than zero then;
             $(timeId).attr("value", window.localStorage.getItem(time)); // store the time and entered text
         };
-
-
     })
 
-    // preventDefault for submitting
+    // preventDefault for submitting button
     $("form").on(("submit"), function (e) {
         e.preventDefault();
        // console.log(e.target) // see if we can target the form
@@ -46,5 +43,4 @@ $(document).ready(function () {
 
         window.localStorage.setItem(time, text); // submits the time and text into local storage
     })
-
 })
