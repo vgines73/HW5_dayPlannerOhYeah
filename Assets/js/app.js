@@ -3,13 +3,13 @@ $(document).ready(function () {
     const currentDay = moment().format("dddd, MMMM, Do");
     $("#currentDay").text(currentDay);
 
-    const times = [9, 10, 11, 12, 13, 14, 15, 16, 17];
-
+    const times = [9, 10, 11, 12, 13, 14, 15, 16, 17]; // variable for time in military hours
+    
     // localStorage for hour and entered text
     times.forEach(time => {
         const timeCheck = window.localStorage.getItem(time);
         // console.log(timeCheck); // check to see if it shows, shows null
-        const timeId = "#" + time;
+        const timeId = "#" + time; //time idtag in military time
         const currentHour = moment().hour(); // variable for current hour
         // console.log(currentHour); // gets the current hour
         // console.log(time); // console log the time of the hour
@@ -19,7 +19,7 @@ $(document).ready(function () {
             $(timeId).addClass("past"); // background text turns grey
         } else if (currentHour === time) { //present
             $(timeId).addClass("present"); // background text turns red
-            $(timeId).attr("disabled", true); // disable user from entering text
+            // $(timeId).attr("disabled") === true; // disable user from entering text
         } else if (currentHour < time) { // future
             $(timeId).addClass("future"); // background text turns green
 
