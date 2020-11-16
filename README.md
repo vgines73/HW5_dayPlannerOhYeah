@@ -1,5 +1,10 @@
 # 05 Third-Party APIs: Work Day Scheduler
 
+## Day Planner Oh Yeah
+
+- - -
+
+
 Had to create a Work Day Scheduler to add important events to manage my time effectively:
 
 - needed to make sure current day was displayed on the calender.
